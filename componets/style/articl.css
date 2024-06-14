@@ -1,0 +1,22 @@
+.articls{
+    display: flex;
+    align-items: center;
+}
+.articletitle , .articleinput{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    padding-right: 8em;
+}
+.articleinput>input{
+    width: 5em;
+    background-color: #90E0EF;
+    border: 0px;
+}
+.articleinput>select{
+    width: 5em;
+    height: 2em;
+    background-color: #90E0EF;
+    border: 0px;
+}
