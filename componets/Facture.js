@@ -8,19 +8,30 @@ export default class Facture extends Component {
         this.state ={
             IDfactur:"",
             dateFactur:"",
-            facturea:""
+            facturea:"",
+            numerArticle:this.numberOfArtecls
         }
     }
-    render() {
+    numberOfArtecls=(articls)=>{
+        this.setState.numerArticle
+        }
+        render() {
+            console.log("")
+            let classNamed="s"
+            let disable=false
+            if (this.numberOfArtecle) {
+            classNamed="disacble";
+            disable=true
+        }
         return (
             <div className='facture'>
                 <form>
                     <input type='number' placeholder='ID facture' className='IDfactury roundbox'></input>
                     <input type='date' placeholder='date facture' className='datefacture roundbox'></input>
                     <select className='select roundbox'></select>
-                    <button type='submit' className='roundbox' >Ajouter facture</button>
+                    <button type='submit' className={`roundbox ${classNamed}`} disabled={disable} >Ajouter facture</button>
                 </form>
-                <Articl/>
+                <Articl numberOfArtecls={this.numberOfArtecls}/>
             </div>
         )
     }

@@ -8,6 +8,7 @@
     justify-content: space-between;
     width: 80%;
     padding-right: 8em;
+    margin-bottom: 2em;
 }
 .articleinput>input{
     width: 5em;
@@ -19,4 +20,10 @@
     height: 2em;
     background-color: #90E0EF;
     border: 0px;
+}
+.fa-trash-can{
+    position: absolute;
+    left: 85%;
+    font-size: 2em;
+    color: red;
 }

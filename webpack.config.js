@@ -33,6 +33,17 @@ module.exports={
                         loader:"css-loader",
                     }
                 ]
+            },
+            //this s for fontawsome
+            {
+                test: /\.(woff|woff2|eot|ttf|otf|svg)$/, // Rule to handle font files
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',
+                    },
+                },
             }
         ]
     }
