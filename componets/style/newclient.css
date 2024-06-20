@@ -1,0 +1,35 @@
+.addform{
+    background-color: #0077B6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 70%; makes a lot of problems */
+}
+.colseButton{
+    width: 1em;
+    padding-left: 25em;
+}
+.addClient{
+    text-align: center;
+}
+.inputs{
+    width: 50%;
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+.clientInput{
+    border-radius: 25px;
+    border: 0px;
+    background-color: #90E0EF;
+    height: 2em;
+    width: 17em;
+    outline: none;
+    padding: 0px 1em;
+}

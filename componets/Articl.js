@@ -3,11 +3,11 @@ import "./style/articl.css"
 import { v4 as uuidv4 } from 'uuid'; 
 import { products } from './products';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 export default class Articl extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         // Initial state with an empty article array
         this.state = {
             article:[]
@@ -16,18 +16,23 @@ export default class Articl extends Component {
     
     // Method to add a new article to the state
     addarticle = () => {
-        this.setState(prevSate => {
+        this.setState(prevState => {
+            const newArticle = {
+                id: uuidv4(),  // Generate a unique ID for the new article
+                article: "",
+                quantite: "",
+                prix: "",
+                remis: "",
+                montont: ""
+            };
+
+            // Call the numberOfArtecls function with the new length of the article array
+            this.props.numberOfArtecls(prevState.article.length + 1);
+
             return {
-                article: [...prevSate.article, {
-                    id: uuidv4(),  // Generate a unique ID for the new article
-                    article: "",
-                    quantite: "",
-                    prix: "",
-                    remis: "",
-                    montont: ""
-                }]
-            }
-        })
+                article: [...prevState.article, newArticle]
+            };
+        });
     }
 
     // Method to handle changes in input fields
@@ -67,11 +72,20 @@ export default class Articl extends Component {
                 })
             }
         })
+        this.props.ArticlState(this.state.article)
+    }
+    deleteArticl= (event)=>{
+        const id = event.currentTarget.dataset.id
+        console.log(id);
+        this.setState(prevSatate=>{
+            return {article: prevSatate.article.filter(e=>{return e.id !== id })}
+        })
     }
     
     render() {
+        // this.props.numberOfArtecls(this.state.article.length)
         const { article } = this.state;
-        console.log(article)
+        // console.log(article)
         return (
             <div className='articls'>
                 {/* Button to add a new article */}
@@ -94,12 +108,16 @@ export default class Articl extends Component {
                                     )
                                 })}
                             </select>
-                            <input onChange={(event) => this.handelChange(event, e.id, "quantite")} required type='number'></input>
-                            <input disabled value={e.prix}></input>
-                            <input disabled value={e.remis}></input>
-                            <input disabled value={e.montont}></input>
+                            <input onChange={(event) => this.handelChange(event, e.id, "quantite")} className='quantite' required type='number'></input>
+                            <input disabled value={e.prix} className='disabled'></input>
+                            <input disabled value={e.remis} className='disabled'></input>
+                            <input disabled value={e.montont} className='disabled'></input>
                             {/* Icon to delete an article */}
-                            <i class="fa-regular fa-trash-can" data-id={e.id} onClick={this.deleteArticl}></i>
+                            {/* this one is working why I'm not complaitly sure */}
+                            <button className='delete-button' data-id={e.id} onClick={this.deleteArticl} ><FontAwesomeIcon icon={faTrashCan} data-id={e.id} onClick={this.deleteArticl} /></button>
+
+                            {/* <FontAwesomeIcon icon={faTrashCan} data-id={e.id} onClick={this.deleteArticl}/> this one made the page crash and made some errors f it*/}
+                            {/* <i class="fa-regular fa-trash-can" data-id={e.id} onClick={(event)=>this.deleteArticl(event)}></i> I've tryd to add the icone like this but it did not work  */}
                         </div>
                     )
                 })}

@@ -12,8 +12,14 @@
 }
 .articleinput>input{
     width: 5em;
-    background-color: #90E0EF;
+    /* background-color: #90E0EF; */
     border: 0px;
+}
+.quantite{
+    background-color: #90E0EF;
+}
+.disabled{
+    cursor: not-allowed;
 }
 .articleinput>select{
     width: 5em;
@@ -21,9 +27,15 @@
     background-color: #90E0EF;
     border: 0px;
 }
-.fa-trash-can{
+
+.delete-button{
+    /* position: relative; */
     position: absolute;
     left: 85%;
-    font-size: 2em;
+    height: 1.5em;
+    margin-top: -0.2em;
+    font-size: 1.5em;
     color: red;
+    background-color: #00B4D8;
+    border: 0px;
 }
