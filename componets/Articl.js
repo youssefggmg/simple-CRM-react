@@ -81,6 +81,10 @@ export default class Articl extends Component {
             return {article: prevSatate.article.filter(e=>{return e.id !== id })}
         })
     }
+
+    returnDefualt=(defaultState)=>{
+        this.setState({article:defaultState})
+    }
     
     render() {
         // this.props.numberOfArtecls(this.state.article.length)
