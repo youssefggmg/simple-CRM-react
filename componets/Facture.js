@@ -16,7 +16,7 @@ export default class Facture extends Component {
             articleSatate:[],
             clientform:false,
             oldClients: JSON.parse(localStorage.getItem("client"))||[],
-            oldFacturs: [JSON.parse(localStorage.getItem("facture"))]||[],
+            oldFacturs: JSON.parse(localStorage.getItem("facture"))||[],
         }
         this.Articl=React.createRef()
     }
@@ -82,7 +82,7 @@ export default class Facture extends Component {
         const {clientform,clints,oldClients,articleSatate,error} = this.state
         console.log(articleSatate);
         console.log(clientform)
-        console.log(this.Articl);
+        // console.log(this.Articl);
 
         return (
             <div className='facture'>

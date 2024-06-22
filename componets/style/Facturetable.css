@@ -1,7 +1,8 @@
 .table{
     margin-top: 10em;
     background-color: #90E0EF;
-    height: 6em;
+    /* height: 6em; */
+    padding: 2em 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,4 +14,14 @@ th{
     background-color: #00B4D8;
     width: 18%;
     height: 2em;
+}
+td{
+    background-color: #90E0EF;
+    width: 18%;
+    height: 2em;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
 }
